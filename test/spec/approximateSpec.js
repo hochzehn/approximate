@@ -17,13 +17,11 @@ describe("approximate", function () {
             expect(approximate(power2, 16, 4, 10)).toEqual(4);
         });
 
-        it("should return false when expected cannot be matched with callback result", function () {
-            expect(approximate(power2, 17, 0, 10)).toEqual(false);
-        });
-    });
-
-    xit("should find correct input value when expected is outside initial range", function () {
-        expect(approximate()).toEqual(undefined);
+        describe("when expected cannot be matched with callback result", function() {
+            it("should return false", function () {
+                expect(approximate(power2, 17, 0, 10)).toEqual(false);
+            });
+        })
     });
 
 });
