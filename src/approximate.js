@@ -1,4 +1,4 @@
-var approximate = function (calculation, expectedResult, inputRangeFrom, inputRangeTo) {
+var approximate = function (calculation, expectedResult, inputRangeFrom, inputRangeTo, noExactMatchRequired) {
     var currentInputRangeFrom = inputRangeFrom;
     var currentInputRangeTo = inputRangeTo;
 
@@ -23,6 +23,10 @@ var approximate = function (calculation, expectedResult, inputRangeFrom, inputRa
 
         if (currentInputRangeFrom == currentInput && currentInputRangeTo == currentInput) {
             console.log("Search range lower and upper already set to " + currentInput + " - cannot match expected value.");
+
+            if (noExactMatchRequired) {
+                return currentInput;
+            }
             return false;
         }
 

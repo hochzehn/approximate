@@ -21,6 +21,12 @@ describe("approximate", function () {
             it("should return false", function () {
                 expect(approximate(power2, 17, 0, 10)).toEqual(false);
             });
+
+            describe("when option flag set", function() {
+                it("should return closest input", function () {
+                    expect(approximate(power2, 17, 0, 10, true)).toEqual(4);
+                });
+            });
         })
     });
 
