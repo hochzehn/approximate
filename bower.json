@@ -1,0 +1,6 @@
+{
+  "name": "approximate",
+  "version": "0.1.0",
+  "main": "dist/approximate.js",
+  "ignore": ["*", "!dist/*"]
+}
