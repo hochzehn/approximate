@@ -22,9 +22,19 @@ var approximate = function (calculation, expectedResult, inputRangeFrom, inputRa
         }
 
         if (currentOutput > expectedResult) {
+            if (currentInputRangeTo == currentInput) {
+                console.log("Search range upper already set to " + currentInput + " - cannot match expected value.");
+                return false;
+            }
+
             console.log("Setting range upper to " + currentInput);
             currentInputRangeTo = currentInput;
         } else if (currentOutput < expectedResult) {
+            if (currentInputRangeFrom == currentInput) {
+                console.log("Search range lower already set to " + currentInput + " - cannot match expected value.");
+                return false;
+            }
+
             console.log("Setting range lower to " + currentInput);
             currentInputRangeFrom = currentInput;
         }
@@ -33,7 +43,7 @@ var approximate = function (calculation, expectedResult, inputRangeFrom, inputRa
     var result;
     do {
         result = step();
-    } while (!result);
+    } while (result === undefined);
 
     return result;
 };
