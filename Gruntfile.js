@@ -14,10 +14,7 @@ module.exports = function(grunt) {
 
         uglify: {
             options: {
-                banner: '/* <%= pkg.name %> v<%= pkg.version %>\n' +
-                ' * Build <%= grunt.template.today("yyyy-mm-dd") %> \n' +
-                ' * <%= pkg.repository %> \n' +
-                '*/\n'
+                banner: '/* <%= pkg.name %> v<%= pkg.version %> <%= pkg.repository %> */\n'
             },
             pretty: {
                 options: {
@@ -30,6 +27,11 @@ module.exports = function(grunt) {
                 }
             },
             minified: {
+                options: {
+                    compress: {
+                        drop_console: true
+                    }
+                },
                 files: {
                     'dist/approximate.min.js': ['dist/approximate.js']
                 }
