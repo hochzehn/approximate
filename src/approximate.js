@@ -21,22 +21,27 @@ var approximate = function (calculation, expectedResult, inputRangeFrom, inputRa
             return currentInput;
         }
 
+        if (currentInputRangeFrom == currentInput && currentInputRangeTo == currentInput) {
+            console.log("Search range lower and upper already set to " + currentInput + " - cannot match expected value.");
+            return false;
+        }
+
         if (currentOutput > expectedResult) {
             if (currentInputRangeTo == currentInput) {
-                console.log("Search range upper already set to " + currentInput + " - cannot match expected value.");
-                return false;
+                console.log("Search range upper already set to " + currentInput + " - adjusting to match range lower.");
+                currentInputRangeTo = currentInputRangeFrom;
+            } else {
+                console.log("Setting range upper to " + currentInput);
+                currentInputRangeTo = currentInput;
             }
-
-            console.log("Setting range upper to " + currentInput);
-            currentInputRangeTo = currentInput;
         } else if (currentOutput < expectedResult) {
             if (currentInputRangeFrom == currentInput) {
-                console.log("Search range lower already set to " + currentInput + " - cannot match expected value.");
-                return false;
+                console.log("Search range lower already set to " + currentInput + " - adjusting to match range upper.");
+                currentInputRangeFrom = currentInputRangeTo;
+            } else {
+                console.log("Setting range lower to " + currentInput);
+                currentInputRangeFrom = currentInput;
             }
-
-            console.log("Setting range lower to " + currentInput);
-            currentInputRangeFrom = currentInput;
         }
     }
 
