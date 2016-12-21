@@ -17,10 +17,7 @@ node() {
   }
 
   stage('Publish code coverage') {
-      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'test-reports/PhantomJS 2.1.1 (Linux 0.0.0)/', reportFiles: 'index.html', reportName: 'Coverage'])
-
-      // meh https://issues.jenkins-ci.org/browse/JENKINS-34439
-      // step([$class: 'CloverPublisher', cloverReportDir: 'test-reports/', cloverReportFileName: 'clover.xml'])
+      step([$class: 'CloverPublisher', cloverReportDir: 'test-reports/', cloverReportFileName: 'clover.xml'])
     }
 
 }
