@@ -34,7 +34,7 @@ You can also allow close-enough values to be returned by passing `true` as fifth
 
 ## Run tests
 
-    docker run --rm -it -v $PWD:/opt/karma hochzehn/karma-jasmine-phantomjs
+    bin/test.sh
     
 Code coverage report can be found in `coverage/PhantomJS 2.1.1 (Linux 0.0.0)/index.html` (HTML) as well as `coverage/clover.xml` (Clover XML).
 

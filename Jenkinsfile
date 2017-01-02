@@ -9,7 +9,7 @@ node() {
   }
 
   stage('Test') {
-    sh 'docker run --rm -v $PWD:/opt/karma hochzehn/karma-jasmine-phantomjs start --singleRun=true'
+    sh 'bin/test.sh --singleRun=true'
   }
 
   stage('Publish test results') {
