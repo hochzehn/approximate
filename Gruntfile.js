@@ -36,11 +36,27 @@ module.exports = function(grunt) {
                     'dist/approximate.min.js': ['dist/approximate.js']
                 }
             }
+        },
+
+        "regex-replace": {
+            "console.log": {
+                src: ['dist/approximate.js'],
+                actions: function() {
+                    return [
+                        {
+                            name: 'remove console.log',
+                            search: 'console.log',
+                            replace: '// console.log'
+                        }
+                    ]
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-regex-replace');
 
-    grunt.registerTask('dist', ['clean', 'uglify']);
+    grunt.registerTask('dist', ['clean', 'uglify', 'regex-replace']);
 };
