@@ -1,4 +1,4 @@
-/* approximate v0.1.0 https://github.com/hochzehn/approximate */
+/* approximate v0.1.1 https://github.com/hochzehn/approximate */
 var approximate = function(calculation, expectedResult, inputRangeFrom, inputRangeTo, noExactMatchRequired) {
     var currentInputRangeFrom = inputRangeFrom;
     var currentInputRangeTo = inputRangeTo;
