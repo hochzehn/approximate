@@ -41,7 +41,8 @@ module.exports = function(config) {
             ]
         },
 
-        // web server port
+        // web server
+        hostname: '127.0.0.1',
         port: 9876,
 
         // enable / disable colors in the output (reporters and logs)
